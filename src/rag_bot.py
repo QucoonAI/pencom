@@ -626,15 +626,15 @@ class SimplifiedRAG:
             )
 
             prompt = render_prompt(
-                user_prompt_template,
-                PENCOM_RAG_SYSTEM_PROMPT=system_prompt,
-                context=context_text,
-                question=question
-            )
-
+                    user_prompt_template,
+                    context_text=context_text,
+                    question=question
+                )
+            print(prompt)
             # Format the request for AWS Nova Pro
             request_body = json.dumps({
                 "messages": [{"role": "user", "content": [{"text": prompt}]}],
+                "system": [{"text": system_prompt}],
                 "inferenceConfig": {
                     "max_new_tokens": 2000,
                     "temperature": 0.7,
@@ -649,7 +649,7 @@ class SimplifiedRAG:
                 body=request_body,
                 contentType='application/json'
             )
-            
+            print(response)
             # Parse the response from Nova Pro
             result = json.loads(response['body'].read())
             # Extract the text answer (Nova Pro format)

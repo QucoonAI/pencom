@@ -146,12 +146,11 @@ system_instruction: |
     - Put complete HTML response as a string in "html_content" key
 
 user_prompt: |
-  {{PENCOM_RAG_SYSTEM_PROMPT}}
-
   Context Information:
-  {{context_text}}
+  {{ context_text }}
 
-  User's Question: {{question}}
+  User's Question:
+  {{ question }}
 
   Response Format:
   {
