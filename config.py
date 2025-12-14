@@ -9,6 +9,8 @@ class Settings(BaseSettings):
     NDB: str = ""
     CS: str = ""
     AWS_REGION: str = "us-east-1"
+    ACCESS_KEY_ID: str = ""
+    SECRET_ACCESS_KEY: str = ""
     PINECONE_API_KEY: str = ""
     PINECONE_INDEX_NAME: str = ""
     S3_BUCKET_NAME: str = ""
@@ -35,6 +37,8 @@ class Settings(BaseSettings):
                     NDB=st.secrets.get("NDB", ""),
                     CS=st.secrets.get("CS", ""),
                     AWS_REGION=st.secrets.get("AWS_REGION", "us-east-1"),
+                    ACCESS_KEY_ID=st.secrets.get("ACCESS_KEY_ID", ""),
+                    SECRET_ACCESS_KEY=st.secrets.get("SECRET_ACCESS_KEY", ""),
                     PINECONE_API_KEY=st.secrets.get("PINECONE_API_KEY", ""),
                     PINECONE_INDEX_NAME=st.secrets.get("PINECONE_INDEX_NAME", ""),
                     S3_BUCKET_NAME=st.secrets.get("S3_BUCKET_NAME", ""),
